@@ -4,6 +4,10 @@ class UserIndex extends Component {
     super(props);
   }
   render() {
-    return <div />;
+    return <div>
+      <p>你好</p>
+    </div>;
   }
 }
+
+export default UserIndex

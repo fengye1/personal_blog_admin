@@ -1,6 +1,9 @@
 import { Layout, Menu, Icon } from 'antd';
 import React, { Component } from 'react';
 import style from './layout.css';
+import router from 'umi/router';
+
+
 const { Header, Sider, Content, Footer } = Layout;
 
 class BaseLayout extends Component {
@@ -12,22 +15,24 @@ class BaseLayout extends Component {
       collapsed: !this.state.collapsed,
     });
   };
-
+  menuClick=(item)=>{
+    router.push(item.key);
+  }
   render() {
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className={style.logo} />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1">
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['/user']} onClick={this.menuClick}>
+            <Menu.Item key="/user">
               <Icon type="user" />
               <span>用户</span>
             </Menu.Item>
-            <Menu.Item key="2">
+            <Menu.Item key="/categories">
               <Icon type="video-camera" />
               <span>分类</span>
             </Menu.Item>
-            <Menu.Item key="3">
+            <Menu.Item key="/article">
               <Icon type="upload" />
               <span>文章</span>
             </Menu.Item>
