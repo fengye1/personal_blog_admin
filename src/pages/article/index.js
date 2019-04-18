@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 
 class index extends  Component{
-    constructor(props){
-        super(props)
+    constructor(){
+     console.log("...constructor")   
     }
     render(){
         return(<div>
